@@ -63,7 +63,7 @@
             }
         }
 
-        /* Header Styles */
+        /* Header Styles - Updated for Logo */
         header {
             position: fixed;
             top: 0;
@@ -73,39 +73,46 @@
             background-color: rgba(10, 25, 49, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0.75rem 0;
         }
 
         header .container {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: 1.25rem;
-            padding-bottom: 1.25rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
         }
 
+        /* Updated Logo Container */
         .logo {
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            text-decoration: none;
+            height: 60px; /* ارتفاع ثابت للهيدر */
         }
 
+        .logo-image {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image img {
+            height: 45px; /* ارتفاع اللوجو */
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-image img {
+            transform: scale(1.05);
+        }
+
+        /* Optional: Keep the text for accessibility */
         .logo-text {
-            font-size: 2rem;
-            font-weight: 900;
-            font-family: 'Playfair Display', serif;
-            background: var(--green-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-        }
-
-        .logo-subtext {
-            font-size: 0.75rem;
-            color: var(--muted-foreground);
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            display: none; /* إخفاء النص */
         }
 
         nav {
@@ -325,8 +332,6 @@
                 transform: translateY(0);
             }
         }
-
-        /* Rest of the CSS remains the same... */
 
         /* Service Images Styling */
         .service-image {
@@ -691,124 +696,193 @@
             height: auto;
         }
 
-        .logo-slogan {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        /* Logo Section Styles - Responsive */
+/* Logo Section Styles - Responsive Single Line */
+.logo-section {
+    padding: clamp(3rem, 5vw, 6rem) 0;
+    background-color: rgba(10, 25, 49, 0.8);
+    text-align: center;
+    border-top: 1px solid var(--border);
+    overflow: hidden; /* Prevent horizontal scroll */
+}
 
-        .logo-slogan h2 {
-            font-size: 3rem;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-            white-space: nowrap;
-            overflow: hidden;
-        }
+.logo-image-container {
+    margin-bottom: clamp(1.5rem, 3vw, 3rem);
+}
 
-        @media (min-width: 768px) {
-            .logo-slogan h2 {
-                font-size: 4rem;
-            }
-        }
+.logo-image-container img {
+    max-width: min(300px, 50vw);
+    width: 100%;
+    height: auto;
+}
 
-        .logo-slogan h3 {
-            font-size: 2rem;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            line-height: 1.4;
-            white-space: nowrap;
-            overflow: hidden;
-        }
+.logo-slogan {
+    max-width: 95vw; /* Allow some margin */
+    margin: 0 auto;
+    padding: 0 2vw;
+}
 
-        @media (min-width: 768px) {
-            .logo-slogan h3 {
-                font-size: 2.5rem;
-            }
-        }
+.logo-slogan h2 {
+    font-size: clamp(1.5rem, 4.5vw, 4rem); /* Adjust these values */
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 1vw;
+}
 
-        .english-slogan {
-            display: block;
-        }
+.logo-slogan h3 {
+    font-size: clamp(1.3rem, 3vw, 2.5rem); /* Adjust these values */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 1vw;
+}
 
-        .arabic-slogan {
-            display: block;
-        }
+/* Media queries for fine-tuning */
+@media (max-width: 480px) {
+    .logo-slogan h2 {
+        font-size: clamp(1.3rem, 4vw, 1.8rem);
+    }
+    .logo-slogan h3 {
+        font-size: clamp(1.1rem, 3vw, 1.5rem);
+    }
+}
 
-        .vego-english {
-            color: var(--primary);
-        }
+@media (min-width: 481px) and (max-width: 768px) {
+    .logo-slogan h2 {
+        font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    }
+    .logo-slogan h3 {
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+    }
+}
 
-        .english-rest {
-            color: var(--foreground);
-        }
+@media (min-width: 769px) and (max-width: 1024px) {
+    .logo-slogan h2 {
+        font-size: clamp(2.5rem, 3.5vw, 3.5rem);
+    }
+    .logo-slogan h3 {
+        font-size: clamp(2rem, 2.5vw, 2.3rem);
+    }
+}
 
-        .vego-arabic {
-            color: var(--primary);
-        }
+.english-slogan {
+    display: block;
+}
 
-        .arabic-rest {
-            color: var(--foreground);
-        }
+.arabic-slogan {
+    display: block;
+}
 
-        /* Warning Section Styles */
-        .warning-section {
-            padding: 3rem 0;
-            background-color: rgba(26, 40, 71, 0.5);
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
+.vego-english {
+    color: var(--primary);
+}
 
-        .warning-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
+.english-rest {
+    color: var(--foreground);
+}
 
-        .warning-text {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
+.vego-arabic {
+    color: var(--primary);
+}
 
-        .warning-text-arabic {
-            font-size: 1.125rem;
-            color: #EF4444;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-        }
+.arabic-rest {
+    color: var(--foreground);
+}
+        /* Warning Section Styles - Responsive Single Line */
+.warning-section {
+    padding: clamp(2rem, 4vw, 3rem) 0;
+    background-color: rgba(26, 40, 71, 0.5);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    overflow: hidden; /* Prevent horizontal scroll */
+}
 
-        .warning-text-english {
-            font-size: 1.125rem;
-            color: #EF4444;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-        }
+.warning-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+    max-width: 95vw;
+    margin: 0 auto;
+    padding: 0 2vw;
+}
 
-        .warning-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid #EF4444;
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
-            transition: transform 0.3s ease;
-        }
+.warning-text {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.25rem, 0.5vw, 0.5rem);
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    width: 100%;
+}
 
-        .warning-image:hover {
-            transform: scale(1.05);
-        }
+.warning-text-arabic {
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    color: #EF4444;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding: 0 1vw;
+}
 
-        .warning-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.warning-text-english {
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    color: #EF4444;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding: 0 1vw;
+}
+
+/* Media queries for warning text */
+@media (max-width: 480px) {
+    .warning-text-arabic,
+    .warning-text-english {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .warning-text-arabic,
+    .warning-text-english {
+        font-size: clamp(1rem, 1.8vw, 1.1rem);
+    }
+}
+
+.warning-image {
+    width: clamp(60px, 8vw, 100px);
+    height: clamp(60px, 8vw, 100px);
+    border-radius: 50%;
+    overflow: hidden;
+    border: clamp(2px, 0.3vw, 3px) solid #EF4444;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.warning-image:hover {
+    transform: scale(1.05);
+}
+
+.warning-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
         @keyframes fadeIn {
             from {
@@ -828,13 +902,17 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Header -->
+    <!-- Navigation Header with Logo Image -->
     <header>
         <div class="container">
-            <div class="logo">
-                <div class="logo-text">vego</div>
-                <div class="logo-subtext">Group</div>
-            </div>
+            <!-- Logo as Image -->
+            <a href="#" class="logo">
+                <div class="logo-image">
+                    <img src="./imgs/Vego_Logo_Light.png" alt="Vego Group Logo">
+                </div>
+                <div class="logo-text">Vego Group</div> <!-- Hidden but accessible for screen readers -->
+            </a>
+            
             <nav>
                 <a href="#services">Services</a>
                 <a href="#contact">Contact</a>
@@ -855,7 +933,7 @@
                     </div>
                     
                     <div class="hero-main-title">
-                        <span class="hero-title-arabic">دلعناك !!!</span>
+                        <span class="hero-title-arabic">!!! دلعناك</span>
                         <span class="hero-title-english">We've Got You Covered!!!</span>
                     </div>
                     
@@ -874,8 +952,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Rest of the HTML remains the same... -->
 
     <!-- Services Section -->
     <section id="services" class="services">
@@ -985,6 +1061,7 @@
                         <a href="https://tiktok.com/@vego_auto" target="_blank" rel="noopener noreferrer">TikTok</a>
                         <a href="https://instagram.com/vego_group1" target="_blank" rel="noopener noreferrer">Instagram</a>
                         <a href="https://snapchat.com/add/vego_group1" target="_blank" rel="noopener noreferrer">Snapchat</a>
+                        <a href="https://x.com/vego_group1" target="_blank" rel="noopener noreferrer">X</a>
                     </div>
                 </div>
             </div>
@@ -1057,6 +1134,15 @@
             const scrollY = window.scrollY;
             if (hero && scrollY < window.innerHeight) {
                 hero.style.transform = `translateY(${scrollY * 0.03}px)`;
+            }
+        });
+
+        // Optional: Add a loading state for the logo
+        window.addEventListener('load', () => {
+            const logo = document.querySelector('.logo-image img');
+            if (logo) {
+                logo.style.opacity = '1';
+                logo.style.transition = 'opacity 0.5s ease';
             }
         });
     </script>
